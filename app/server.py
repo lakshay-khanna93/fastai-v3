@@ -91,16 +91,17 @@ async def analyze(request):
     ax.axes.get_xaxis().set_visible(False)
     ax.axes.get_yaxis().set_visible(False)
     ax.set_frame_on(False)
-    ax.set_aspect('equal')
-
     canvas = FigureCanvas(fig)
     p = librosa.display.specshow(librosa.amplitude_to_db(out, ref=np.max), ax=ax, y_axis='log', x_axis='time')
     plt.savefig('output.png', dpi =144, bbox_inches='tight',pad_inches=0)
     import cv2
     image = cv2.imread('output.png')
 
+    output_learner = learn.predict(image)
+    prob_score = output_learner[2][1]if output_learner[1] == 1 else output_learner[2][0]
 
-    return JSONResponse({'result': str(learn.predict(image))})
+    response_string = "Your hearbeat is {} with a probability {}.".format(output_learner[0],np.round(prob_score.numpy(), 4))
+    return JSONResponse({'result': response_string})
 
 
 if __name__ == '__main__':
