@@ -9,6 +9,8 @@ RUN pip install --upgrade -r requirements.txt
 
 COPY app app/
 
+RUN apt-get update -y && apt-get install -y --no-install-recommends build-essential gcc \
+                                        libsndfile1
 RUN python app/server.py
 
 EXPOSE 5000
