@@ -9,7 +9,7 @@ RUN pip install --upgrade -r requirements.txt
 
 COPY app app/
 
-RUN python app/server.py
+RUN python app/server.py serve
 
 EXPOSE 5000
 
