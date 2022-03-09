@@ -16,8 +16,8 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1--a19J5FToS8xrvr1dxavyUuKEhcmxzi'
-export_file_name = 'export.pkl'
+export_file_url = 'https://www.dropbox.com/s/dbmsf8oumi0en60/model_spec_three.pkl?dl=1'
+export_file_name = 'export1.pkl'
 temp = pathlib.PosixPath
 #pathlib.PosixPath = pathlib.WindowsPath
 from starlette.routing import Route
