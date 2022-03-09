@@ -3,6 +3,8 @@
   <meta charset='utf-8'>
   <link rel='stylesheet' href='../static/style.css'>
   <script src='../static/client.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 </head>
 <body>
 <div>
@@ -18,16 +20,22 @@
                class='no-display'
                type='file'
                name='file'
-               accept='image/*'
-               onchange='showPicked(this)'>
+               accept='audio/*'>
       </div>
-      <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
+
+      <button class='choose-file-button' type='button' onclick='showPicker()'>Select Audio</button>
       <div class='upload-label'>
         <label id='upload-label'>No file chosen</label>
       </div>
       <div>
         <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
       </div>
+      <audio id='audio-picked' controls autoplay type="audio/wav">
+        <source src="" id="src" />
+      </audio>
+   <!--   <audio id='audio-picked' alt='Chosen Audio'controls>
+        Your browser does not support the audio element.
+      </audio>-->
       <div class='analyze'>
         <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
       </div>
